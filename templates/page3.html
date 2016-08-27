@@ -10,9 +10,11 @@
   <p>You should see a canvas element below this paragraph where you can do paper.js stuff.
 The code goes in the script element under the canvas element.</p>
 
-<button type="button" id="get_SVG_button">Click Me!</button>
+<p><button type="button" id="get_SVG_button">Click Me!</button></p>
 
 <canvas id="myCanvas" height="400" width="650"></canvas>
+
+<pre id="put_SVG_here"></pre>
 
 <script type="text/paperscript" canvas="myCanvas">
 
@@ -23,9 +25,9 @@ The code goes in the script element under the canvas element.</p>
     myPath.add(event.point);
   }
 
-  function putSVGIntoElementText(selector) {  
-    var svgString = encodeURIComponent(paper.project.exportSVG({asString:true}));
-    $(selector).text(svgString); // JQuery 
+  function getProjectSVG() {  
+    return "stubby";
+    return encodeURIComponent(project.exportSVG({asString:true}));
   }
 
 </script>
@@ -34,8 +36,10 @@ The code goes in the script element under the canvas element.</p>
 
   $( document ).ready(function() {
     $('#get_SVG_button').click(function() {
-      alert( "Handler for #get_SVG_button click() called." );
-     });
+        alert( "Handler for #get_SVG_button click() called." );
+        var svgString = paper.getProjectSVG();
+        $("#put_SVG_here").text(svgString); 
+   });
   });
 
 </script>

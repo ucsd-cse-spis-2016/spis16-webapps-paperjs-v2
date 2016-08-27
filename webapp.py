@@ -20,7 +20,10 @@ def render_page3():
     return render_template('page3.html')
 
 
-# You'll probably want a basic function here to convert miles to kilometers too...
+@app.route('/page4')
+def render_page4():
+    return render_template('page4.html')
+
 
 if __name__=="__main__":
     app.run(debug=False, port=54321)
