@@ -4,9 +4,10 @@
 
  {%  block content %}
   <h1>Home</h1>
-  <ul>
-    <li><a href="/ctof">Convert celsius to Fahrenheit</a></li>
-    <li><a href="/ftoc">Convert Fahrenheit to Celsius</a></li>
-    <li><a href="/mtokm">Convert Miles to Kilometers</a></li>
-  </ul>
+
+  <p>You should see a canvas element below this paragraph where you can do processing stuff.</p>
+
+  <canvas data-processing-sources="{{ url_for('static', filename='hello-web.pde') }}">
+  </canvas>
+
  {%  endblock %}
