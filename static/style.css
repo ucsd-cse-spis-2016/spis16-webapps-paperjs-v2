@@ -6,3 +6,12 @@ body {
 canvas {
        border: 1px solid black;
 }
+
+#putSVGHere {
+	    
+width: auto;
+height: auto;
+border: 2px solid purple;
+background-color: #fef;
+	    
+}

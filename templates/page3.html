@@ -1,0 +1,44 @@
+{%  extends "layout.html" %}
+
+ {%  block title %}Home{%  endblock %}
+
+ {%  block content %}
+  <h1>Page 3</h1>
+
+<p><a href="/">Back to home</a></p>
+
+  <p>You should see a canvas element below this paragraph where you can do paper.js stuff.
+The code goes in the script element under the canvas element.</p>
+
+<button type="button" id="get_SVG_button">Click Me!</button>
+
+<canvas id="myCanvas" height="400" width="650"></canvas>
+
+<script type="text/paperscript" canvas="myCanvas">
+
+  function onMouseUp(event) {
+    var myPath = new Path();
+    myPath.strokeColor = 'black';
+    myPath.add(event.downPoint);
+    myPath.add(event.point);
+  }
+
+  function putSVGIntoElementText(selector) {  
+    var svgString = encodeURIComponent(paper.project.exportSVG({asString:true}));
+    $(selector).text(svgString); // JQuery 
+  }
+
+</script>
+
+<script type="text/javascript" >
+
+  $( document ).ready(function() {
+    $('#get_SVG_button').click(function() {
+      alert( "Handler for #get_SVG_button click() called." );
+     });
+  });
+
+</script>
+
+ 
+ {%  endblock %}
