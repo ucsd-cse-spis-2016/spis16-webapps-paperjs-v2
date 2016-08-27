@@ -14,7 +14,9 @@ The code goes in the script element under the canvas element.</p>
 
 <canvas id="myCanvas" height="400" width="650"></canvas>
 
-<pre id="put_SVG_here"></pre>
+<div>
+ <textarea id="put_SVG_here" rows="4" cols="70"></textarea>
+</div>
 
 <script type="text/paperscript" canvas="myCanvas">
 
@@ -25,19 +27,20 @@ The code goes in the script element under the canvas element.</p>
     myPath.add(event.point);
   }
 
-  function getProjectSVG() {  
-    return "stubby";
-    return encodeURIComponent(project.exportSVG({asString:true}));
-  }
-
 </script>
 
 <script type="text/javascript" >
 
+  paper.install(window);
+
+  function getProjectSVG() {  
+     return paper.project.exportSVG({asString:true});
+  }
+
   $( document ).ready(function() {
     $('#get_SVG_button').click(function() {
-        alert( "Handler for #get_SVG_button click() called." );
-        var svgString = paper.getProjectSVG();
+        console.log( "Handler for #get_SVG_button click() called." );
+        var svgString = getProjectSVG();
         $("#put_SVG_here").text(svgString); 
    });
   });

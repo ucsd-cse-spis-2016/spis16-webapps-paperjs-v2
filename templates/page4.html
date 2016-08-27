@@ -10,6 +10,11 @@
   <p>You should see a canvas element below this paragraph where you can do paper.js stuff.
 The code goes in the script element under the canvas element.</p>
 
+<p><button type="button" id="get_SVG_button">Click Me!</button></p>
+
+<div>
+ <textarea id="put_SVG_here" rows="10" cols="70"></textarea>
+</div>
 
 <p> <a href="#" onclick="tool1.activate();">Lines</a>
     <a href="#" onclick="tool2.activate();">Clouds</a>
@@ -54,7 +59,27 @@ The code goes in the script element under the canvas element.</p>
       // Use the arcTo command to draw cloudy lines
       path.arcTo(event.point);
     }
+
+
+
   }
+
+  function getProjectSVG() {  
+     return paper.project.exportSVG({asString:true});
+     // or use this if you need it to be "encoded" as "urlsafe"  
+     // return encodeURIComponent(paper.project.exportSVG({asString:true}));
+  }
+
+
+  $( document ).ready(function() {
+    $('#get_SVG_button').click(function() {
+        alert( "Handler for #get_SVG_button click() called." );
+        var svgString = getProjectSVG();
+        $("#put_SVG_here").text(svgString); 
+   });
+  });
+
+
 </script>
 
  
