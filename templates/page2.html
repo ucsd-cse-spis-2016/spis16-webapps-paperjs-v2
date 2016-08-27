@@ -1,0 +1,28 @@
+{%  extends "layout.html" %}
+
+ {%  block title %}Home{%  endblock %}
+
+ {%  block content %}
+  <h1>Page 2</h1>
+
+<p><a href="/">Back to home</a></p>
+
+  <p>You should see a canvas element below this paragraph where you can do paper.js stuff.
+The code goes in the script element under the canvas element.</p>
+
+
+  <canvas id="myCanvas" resize></canvas>
+
+
+<script type="text/paperscript" canvas="myCanvas">
+
+  function onMouseUp(event) {
+    var myPath = new Path();
+    myPath.strokeColor = 'black';
+    myPath.add(event.downPoint);
+    myPath.add(event.point);
+  }
+
+</script>
+ 
+ {%  endblock %}

@@ -5,29 +5,9 @@
  {%  block content %}
   <h1>Home</h1>
 
-  <p>You should see a canvas element below this paragraph where you can do paper.js stuff.
-The code goes in the script element under the canvas element.</p>
-
-
-  <canvas id="myCanvas" resize></canvas>
-
-
-<script type="text/paperscript" canvas="myCanvas">
-
-  // Create a Paper.js Path to draw a line into it:
-  var path = new Path();
-
-  // Give the stroke a color
-  path.strokeColor = 'black';
-  var start = new Point(100, 100);
-
-  // Move to start and draw a line from there
-  path.moveTo(start);
-
-  // Note the plus operator on Point objects.
-  // PaperScript does that for us, and much more!
-  path.lineTo(start + [ 100, -50 ]);
-
-</script>
+<ul>
+ <li><a href="/page1">Page 1: Simple Example</a></li>
+ <li><a href="/page2">Page 2: Drawing Lines with Mouse</a></li>
+</ul>
  
  {%  endblock %}
