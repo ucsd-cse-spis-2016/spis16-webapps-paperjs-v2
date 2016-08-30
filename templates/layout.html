@@ -1,20 +1,49 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-     <script src="{{ url_for('static', filename='paper-full.min.js') }}"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <!-- paper.js -->
+
+    <script src="{{ url_for('static', filename='paper-full.min.js') }}"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
      <title> {% block title %}{% endblock %} - My Webpage</title>
    </head>
 
   <body>
+    {% include 'navbar.html' %}
+
+    {% include 'flash_messages.html' %}
+
     <h1>paperjs example Flask app</h1>
-    <p>Source code repo: <a href="https://github.com/ucsd-cse-spis-2016/spis16-webapps-paperjs">https://github.com/ucsd-cse-spis-2016/spis16-webapps-paperjs</a></p>
-    <p>This tutorial comes from <a href="https://ucsd-cse-spis-2016.github.io">SPIS 2016</a></p>
 
     <div id="content">{% block content %}{% endblock %}</div>
+
+    <div id="footer">
+      <p>Source code repo: <a href="https://github.com/ucsd-cse-spis-2016/spis16-webapps-paperjs-v2">https://github.com/ucsd-cse-spis-2016/spis16-webapps-paperjs-v2</a></p>
+      <p>This tutorial comes from <a href="https://ucsd-cse-spis-2016.github.io">SPIS 2016</a></p>
+    </div>
+
+    <!-- Bootstrap -->
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     
   </body>
 </html>
